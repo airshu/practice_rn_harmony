@@ -11,12 +11,16 @@
 
 #include "RNOH/Package.h"
 #include "RNOH/ArkTSTurboModule.h"
+#include "generated/RNDeviceInfo.h"
 
 namespace rnoh {
 
 class RNOHGeneratedPackageTurboModuleFactoryDelegate : public TurboModuleFactoryDelegate {
   public:
     SharedTurboModule createTurboModule(Context ctx, const std::string &name) const override {
+        if (name == "RNDeviceInfo") {
+            return std::make_shared<RNDeviceInfo>(ctx, name);
+        }
         return nullptr;
     };
 };

@@ -1,6 +1,6 @@
 {
   "name": "rtn-calculator",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Add numbers with TurboModules",
   "main": "index.ts",
   "keywords": [],

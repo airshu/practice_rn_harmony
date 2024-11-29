@@ -50,6 +50,10 @@
           ]
         }
       ]
-    }
+    },
+//    {
+//      "name": "device_info",
+//      "srcPath": "./device_info",
+//    }
   ]
 }
