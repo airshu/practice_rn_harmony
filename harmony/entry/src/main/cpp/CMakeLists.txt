@@ -17,6 +17,7 @@ add_subdirectory("${RNOH_CPP_DIR}" ./rn)
 
 # 手动链接第三方库 第一步 begin：
 add_subdirectory("${OH_MODULE_DIR}/@react-native-oh-tpl/netinfo/src/main/cpp" ./netinfo)
+add_subdirectory("${OH_MODULE_DIR}/@react-native-oh-tpl/async-storage/src/main/cpp" ./async-storage)
 # 手动链接第三方库 第一步 end：
 
 
@@ -61,5 +62,5 @@ target_link_libraries(rnoh_app PUBLIC rnoh)
 
 # 手动链接第三方库 第二步 begin：
 target_link_libraries(rnoh_app PUBLIC rnoh_netinfo)
-
+target_link_libraries(rnoh_app PUBLIC rnoh_async_storage)
 # 手动链接第三方库 第二步 end：

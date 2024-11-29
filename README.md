@@ -194,3 +194,8 @@ class RNOHGeneratedPackageTurboModuleFactoryDelegate : public TurboModuleFactory
 
 官方目前（2024.11.29）还不支持AutoLink，所以当你添加了一个第三方库时，需要手动在原生侧也添加依赖。添加device-info这个库时，如果使用
 har的方式依赖，那么会找不到RNDeviceInfoPackage这个类，因为他的包里没有ts.ts这个声明文件。所以需要手动拷贝一下，或者使用源码方式依赖。
+
+
+## react-native-oh-tpl/async-storage使用tgz依赖
+
+远程依赖的文件结构有变化
