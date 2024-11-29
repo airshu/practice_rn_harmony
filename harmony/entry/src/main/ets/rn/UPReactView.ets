@@ -2,7 +2,10 @@ import { RNInstance, ResourceJSBundleProvider, RNSurface, ComponentBuilderContex
   RNInstanceOptions,
   RNInstancesCoordinator,
   RNOHLogger,
-  StandardRNOHLogger} from "@rnoh/react-native-openharmony";
+  StandardRNOHLogger,
+  MetroJSBundleProvider,
+  TraceJSBundleProviderDecorator,
+  AnyJSBundleProvider} from "@rnoh/react-native-openharmony";
 import { common, EnvironmentCallback, Want } from '@kit.AbilityKit';
 import { createRNPackages } from "../RNPackagesFactory";
 import { BusinessError } from "@kit.BasicServicesKit";
@@ -48,8 +51,20 @@ export struct UPReactView {
         enableCAPIArchitecture: true,
         arkTsComponentNames: []
       });
-      await this.rnInstance.runJSBundle(new ResourceJSBundleProvider(this.rnohCoreContext!.uiAbilityContext.resourceManager, this.rnInfo.bundlePath)).then(() => {
+      // await this.rnInstance.runJSBundle(new ResourceJSBundleProvider(this.rnohCoreContext!.uiAbilityContext.resourceManager, this.rnInfo.bundlePath)).then(() => {
+      //   this.isBundleReady = true
+      // })
+
+      let provider = new AnyJSBundleProvider([
+        new MetroJSBundleProvider(),
+        new ResourceJSBundleProvider(this.rnohCoreContext!.uiAbilityContext.resourceManager, this.rnInfo.bundlePath),
+      ]);
+
+      // const provider = new MetroJSBundleProvider()
+      await this.rnInstance.runJSBundle(provider).then(() => {
         this.isBundleReady = true
+        const status = this.rnInstance.getBundleExecutionStatus(provider.getURL()) as string
+        console.log(`status: ${status}`)
       })
     }
   }

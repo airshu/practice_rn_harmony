@@ -96,7 +96,9 @@ function AsyncStorageDemo() {
   };
 
   const writeItemToStorage = async (newValue) => {
+    console.log("writeItemToStorage start", newValue);
     await setItem(newValue);
+    console.log("writeItemToStorage end", newValue);
     setValue(newValue);
   };
 
