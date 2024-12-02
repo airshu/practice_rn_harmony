@@ -10,6 +10,7 @@ import { common, EnvironmentCallback, Want } from '@kit.AbilityKit';
 import { createRNPackages } from "../RNPackagesFactory";
 import { BusinessError } from "@kit.BasicServicesKit";
 import { DefaultHttpClient, HttpClient } from "@rnoh/react-native-openharmony/src/main/ets/HttpClient";
+import { LoadManager, TestView } from "../pages/components/TestView";
 
 @Builder
 export function buildCustomComponent(ctx: ComponentBuilderContext) { }
@@ -55,6 +56,8 @@ export struct UPReactView {
       //   this.isBundleReady = true
       // })
 
+      LoadManager.cpInstance = this.rnInstance
+
       let provider = new AnyJSBundleProvider([
         new MetroJSBundleProvider(),
         new ResourceJSBundleProvider(this.rnohCoreContext!.uiAbilityContext.resourceManager, this.rnInfo.bundlePath),
@@ -85,6 +88,7 @@ export struct UPReactView {
             },
           })
         }
+        TestView()
       }
       .width('100%')
     }

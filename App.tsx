@@ -9,15 +9,23 @@ import {
   ScrollView,
   View,
   TouchableOpacity,
+  DeviceEventEmitter,
   Alert
 } from 'react-native';
-import { RNTCalculator } from 'rtn-calculator';
+import { RNTCalculator, SampleTurboModule } from 'rtn-calculator';
 import RNDeviceInfo from '@react-native-oh-tpl/react-native-device-info';
 // import SampleTurboModule from './src/bundles/basic/SampleTurboModule';
 import NetInfo, { useNetInfo } from "@react-native-community/netinfo";
 import { useAsyncStorage } from "@react-native-oh-tpl/async-storage";
 
 const App: () => Node = () => {
+
+
+  // native侧发送的消息监听
+  DeviceEventEmitter.addListener('onTest', (event) => {
+    console.log('onTest', event);
+  });
+
   const [result, setResult] = useState<string | null>(null);
 
 
@@ -54,7 +62,7 @@ const App: () => Node = () => {
             }}
           />
           <Button title='Test' onPress={() => {
-            // SampleTurboModule.test();
+            SampleTurboModule.test();
           }} />
           <Text>DeviceInfo Demo</Text>
           <Text>BundleId: {RNDeviceInfo.getBundleId()}</Text>

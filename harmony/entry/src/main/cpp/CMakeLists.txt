@@ -10,7 +10,7 @@ set(RNOH_GENERATED_DIR "${CMAKE_CURRENT_SOURCE_DIR}/generated") # 第三方库�
 set(CMAKE_ASM_FLAGS "-Wno-error=unused-command-line-argument -Qunused-arguments") # 设置汇编编译器标志，忽略未使用的命令行参数错误。
 set(CMAKE_CXX_FLAGS "-fstack-protector-strong -Wl,-z,relro,-z,now,-z,noexecstack -s -fPIE -pie") # 设置 C++ 编译器标志，启用堆栈保护、重定位只读、立即绑定、无执行堆栈、静态链接和位置无关可执行文件
 set(WITH_HITRACE_SYSTRACE 1) # for other CMakeLists.txt files to use
-
+set(CMAKE_VERBOSE_MAKEFILE ON)
 add_compile_definitions(WITH_HITRACE_SYSTRACE) # 启用HiTrace
 
 add_subdirectory("${RNOH_CPP_DIR}" ./rn)

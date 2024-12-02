@@ -6,6 +6,10 @@
 [使用指导](https://gitee.com/react-native-oh-library/usage-docs/blob/master/zh-cn/codegen.md)
 
 
+codegenConfig配置时version的区别：
+
+- version1:适用于创建Turbomodule或者ArkTS组件的场景；
+- version2:适用于创建CAPI组件的场景；
 
 ```shell
 

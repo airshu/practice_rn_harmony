@@ -6336,10 +6336,10 @@ rimraf@~2.6.2:
   dependencies:
     glob "^7.1.3"
 
-"rtn-calculator@file:RTNCalculator/rtn-calculator-1.0.3.tgz":
-  version "1.0.3"
-  resolved "file:RTNCalculator/rtn-calculator-1.0.3.tgz"
-  integrity sha512-QZIX8BbPBBKw4ADlSL8AUR3MfFvKhhmywd6rxRszwagdRIoxaHPcygQKq2b8jfeEj9fohhUlkHxTZYiw4UszRA==
+"rtn-calculator@file:RTNCalculator/rtn-calculator-1.0.5.tgz":
+  version "1.0.5"
+  resolved "file:RTNCalculator/rtn-calculator-1.0.5.tgz"
+  integrity sha512-mH6C3D96RD5uY2s8puW1WO5YHvf24kGKLXkhhG79XZsrlUZR+S+TZg5E7ue/MaecIitTuc7naYxIe3N07oOhYg==
 
 run-parallel@^1.1.9:
   version "1.2.0"

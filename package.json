@@ -19,7 +19,7 @@
     "@react-native-oh/react-native-harmony": "^0.72.38",
     "react": "18.2.0",
     "react-native": "0.72.5",
-    "rtn-calculator": "file:RTNCalculator/rtn-calculator-1.0.3.tgz"
+    "rtn-calculator": "file:RTNCalculator/rtn-calculator-1.0.6.tgz"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
