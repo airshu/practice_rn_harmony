@@ -7,7 +7,7 @@ import { CalculatorWorkerModule } from './modules/CalculatorWorkerModule';
 import { SampleTurboModule } from './modules/SampleTurboModule';
 import { SampleTurboWorkerModule } from './modules/SampleTurboWorkerModule';
 
-class GeneratedTurboModulesFactory extends AnyThreadTurboModuleFactory {
+class GeneratedTurboWorkerModulesFactory extends AnyThreadTurboModuleFactory {
   createTurboModule(name: string): AnyThreadTurboModule | null {
     if (name === TM.RTNCalculator.NAME) {
       return new CalculatorWorkerModule(this.ctx);
@@ -22,7 +22,7 @@ class GeneratedTurboModulesFactory extends AnyThreadTurboModuleFactory {
   }
 }
 
-class GeneratedWorkerTurboModulesFactory extends TurboModulesFactory {
+class GeneratedTurboModulesFactory extends TurboModulesFactory {
   createTurboModule(name: string): TurboModule | null {
     if (name === TM.RTNCalculator.NAME) {
       return new CalculatorModule(this.ctx);
@@ -38,12 +38,13 @@ class GeneratedWorkerTurboModulesFactory extends TurboModulesFactory {
 }
 
 export class GeneratedPackage extends RNPackage {
+  // 配置module在worker线程运行
   createAnyThreadTurboModuleFactory(ctx: AnyThreadTurboModuleContext): AnyThreadTurboModuleFactory {
-    return new GeneratedTurboModulesFactory(ctx);
+    return new GeneratedTurboWorkerModulesFactory(ctx);
   }
 
   createTurboModulesFactory(ctx: UITurboModuleContext): TurboModulesFactory {
-    return new GeneratedWorkerTurboModulesFactory(ctx);
+    return new GeneratedTurboModulesFactory(ctx);
   }
 }
 
