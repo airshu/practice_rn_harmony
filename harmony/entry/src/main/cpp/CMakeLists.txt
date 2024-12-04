@@ -23,6 +23,7 @@ add_subdirectory("${OH_MODULE_DIR}/@react-native-oh-tpl/react-native-gesture-han
 add_subdirectory("${OH_MODULE_DIR}/@react-native-oh-tpl/slider/src/main/cpp" ./slider)
 add_subdirectory("${OH_MODULE_DIR}/@react-native-oh-tpl/react-native-reanimated/src/main/cpp" ./reanimated)
 add_subdirectory("${OH_MODULE_DIR}/@react-native-oh-tpl/masked-view/src/main/cpp" ./masked-view)
+add_subdirectory("${OH_MODULE_DIR}/@react-native-oh-tpl/flash-list/src/main/cpp" ./flash-list)
 # 手动链接第三方库 第一步 end：
 
 
@@ -73,4 +74,5 @@ target_link_libraries(rnoh_app PUBLIC rnoh_gesture_handler)
 target_link_libraries(rnoh_app PUBLIC rnoh_slider)
 target_link_libraries(rnoh_app PUBLIC rnoh_reanimated)
 target_link_libraries(rnoh_app PUBLIC rnoh_masked_view)
+target_link_libraries(rnoh_app PUBLIC rnoh_flash_list)
 # 手动链接第三方库 第二步 end：

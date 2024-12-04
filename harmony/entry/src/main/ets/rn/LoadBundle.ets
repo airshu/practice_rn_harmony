@@ -115,3 +115,29 @@ export class LoadManager {
     const rnohCoreContext: RNOHCoreContext | undefined = AppStorage.get('RNOHCoreContext')
   }
 }
+
+
+export const myFontResourceByFontFamily:Record<string, Resource | string> = {
+  'antoutline': $rawfile("fonts/antoutline.ttf"),
+  "antfill": $rawfile('fonts/antfill.ttf'),
+  'anticon': $rawfile('fonts/AntDesign.ttf'),
+  'Entypo': $rawfile('fonts/Entypo.ttf'),
+  'EvilIcons': $rawfile('fonts/EvilIcons.ttf'),
+  'Feather': $rawfile('fonts/Feather.ttf'),
+  'FontAwesome': $rawfile('fonts/FontAwesome.ttf'),
+  'FontAwesome5Brands-Regular': $rawfile('fonts/FontAwesome5_Brands.ttf'),
+  'FontAwesome5Free-Regular': $rawfile('fonts/FontAwesome5_Regular.ttf'),
+  'FontAwesome5Free-Solid': $rawfile('fonts/FontAwesome5_Solid.ttf'),
+  'FontAwesome6Brands-Regular': $rawfile('fonts/FontAwesome6_Brands.ttf'),
+  'FontAwesome6Free-Regular': $rawfile('fonts/FontAwesome6_Regular.ttf'),
+  'FontAwesome6Free-Solid': $rawfile('fonts/FontAwesome6_Solid.ttf'),
+  'Fontisto': $rawfile('fonts/Fontisto.ttf'),
+  'fontcustom': $rawfile('fonts/Foundation.ttf'),
+  'Ionicons': $rawfile('fonts/Ionicons.ttf'),
+  'Material Design Icons': $rawfile('fonts/MaterialCommunityIcons.ttf'),
+  'Material Icons': $rawfile('fonts/MaterialIcons.ttf'),
+  'Octicons': $rawfile('fonts/Octicons.ttf'),
+  'simple-line-icons': $rawfile('fonts/SimpleLineIcons.ttf'),
+  'zocial': $rawfile('fonts/Zocial.ttf'),
+
+}

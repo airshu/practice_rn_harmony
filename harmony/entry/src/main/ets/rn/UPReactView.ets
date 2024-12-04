@@ -12,7 +12,7 @@ import { BusinessError } from "@kit.BasicServicesKit";
 import { DefaultHttpClient, HttpClient } from "@rnoh/react-native-openharmony/src/main/ets/HttpClient";
 import { LoadManager, TestView } from "../pages/components/TestView";
 import { RNCSlider, SLIDER_TYPE } from "@react-native-oh-tpl/slider";
-import { arkTsComponentNames, buildCustomComponent } from "./LoadBundle";
+import { arkTsComponentNames, buildCustomComponent, myFontResourceByFontFamily } from "./LoadBundle";
 
 
 export class RNInfo {
@@ -50,10 +50,7 @@ export struct UPReactView {
         enableBackgroundExecutor: false,
         enableCAPIArchitecture: true,
         arkTsComponentNames: arkTsComponentNames,
-        fontResourceByFontFamily: {
-          'antoutline': $rawfile("fonts/antoutline.ttf"),
-          "antfill": $rawfile('fonts/antfill.ttf'),
-        },
+        fontResourceByFontFamily: myFontResourceByFontFamily,
       });
       // await this.rnInstance.runJSBundle(new ResourceJSBundleProvider(this.rnohCoreContext!.uiAbilityContext.resourceManager, this.rnInfo.bundlePath)).then(() => {
       //   this.isBundleReady = true

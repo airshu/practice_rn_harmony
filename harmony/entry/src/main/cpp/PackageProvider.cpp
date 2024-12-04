@@ -8,6 +8,7 @@
 #include "SliderPackage.h"
 #include "ReanimatedPackage.h"
 #include "MaskedPackage.h"
+#include "FlashListPackage.h"
 
 using namespace rnoh;
 
@@ -23,5 +24,6 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
         std::make_shared<SliderPackage>(ctx),
         std::make_shared<ReanimatedPackage>(ctx),
         std::make_shared<MaskedPackage>(ctx),
+        std::make_shared<FlashListPackage>(ctx)
     };
 }

@@ -15,7 +15,9 @@
     "@react-native-oh-tpl/react-native-gesture-handler": "file:../../node_modules/@react-native-oh-tpl/react-native-gesture-handler/harmony/gesture_handler.har",
     "@react-native-oh-tpl/slider": "file:../../node_modules/@react-native-oh-tpl/slider/harmony/slider.har",
     "@react-native-oh-tpl/react-native-reanimated": "file:../../node_modules/@react-native-oh-tpl/react-native-reanimated/harmony/reanimated.har",
-    "@react-native-oh-tpl/masked-view": "file:../../node_modules/@react-native-oh-tpl/masked-view/harmony/masked_view.har"
+    "@react-native-oh-tpl/masked-view": "file:../../node_modules/@react-native-oh-tpl/masked-view/harmony/masked_view.har",
+    "@react-native-oh-tpl/flash-list": "file:../../node_modules/@react-native-oh-tpl/flash-list/harmony/flash_list.har",
+//    "@react-native-oh-tpl/react-native-get-random-values": "file:../../node_modules/@react-native-oh-tpl/react-native-get-random-values/harmony/get_random_values.har"
 
   }
 }

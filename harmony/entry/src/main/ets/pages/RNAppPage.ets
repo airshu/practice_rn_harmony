@@ -11,7 +11,7 @@ import {
   RNOHLogger,
   TraceJSBundleProviderDecorator
 } from "@rnoh/react-native-openharmony";
-import { arkTsComponentNames, buildCustomComponent } from "../rn/LoadBundle";
+import { arkTsComponentNames, buildCustomComponent, myFontResourceByFontFamily } from "../rn/LoadBundle";
 import { createRNPackages } from '../RNPackagesFactory';
 
 @Entry
@@ -53,10 +53,7 @@ struct Index {
             enableBackgroundExecutor: false,
             enableCAPIArchitecture: true, // 该项必须为true，用于开启CAPI
             arkTsComponentNames: arkTsComponentNames,
-            fontResourceByFontFamily: {
-              'antoutline': $rawfile("fonts/antoutline.ttf"),
-              "antfill": $rawfile('fonts/antfill.ttf'),
-            },
+            fontResourceByFontFamily: myFontResourceByFontFamily,
           },
           initialProps: { "foo": "bar" } as Record<string, string>,
           appKey: "practice_rn_harmony",

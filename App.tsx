@@ -12,12 +12,12 @@ import {
   Alert
 } from 'react-native';
 import { RNTCalculator, SampleTurboModule } from 'rtn-calculator';
-import RNDeviceInfo from '@react-native-oh-tpl/react-native-device-info';
+
 // import SampleTurboModule from './src/bundles/basic/SampleTurboModule';
-import NetInfo, { useNetInfo } from "@react-native-community/netinfo";
-import { useAsyncStorage } from "@react-native-oh-tpl/async-storage";
+
+
 import { NavigationContainer } from "@react-navigation/native";
-import { createStackNavigator } from '@react-navigation/stack';
+import { createStackNavigator, StackHeaderLeftButtonProps } from '@react-navigation/stack';
 
 import { SafeAreaProvider, SafeAreaView, initialWindowMetrics } from "react-native-safe-area-context";
 
@@ -26,12 +26,16 @@ import { Badge, WhiteSpace } from "@ant-design/react-native";
 import Slider from "@react-native-community/slider";
 
 import Animated, { useSharedValue, withSpring } from "react-native-reanimated";
-
 import { HooksUnTester } from "./src/HooksUnTester";
-
 import { MaskedDemo } from "./src/MaskedDemo";
-
 import { TestDemo } from "./src/TestDemo";
+import { FlashListDemo } from "./src/FlashListDemo";
+import { VectorIconsDemo } from "./src/VectorIconsDemo";
+import { DeviceInfoDemo } from "./src/DeviceInfoDemo";
+import { NetInfoDemo } from "./src/NetInfoDemo";
+import { AsyncStorageDemo } from "./src/AsyncStorageDemo";
+import { CollapsibleDemo } from "./src/CollapsibleDemo";
+// import { GetRandomValuesDemo } from "./src/GetRandomValuesDemo";
 
 
 const HomeStack = createStackNavigator();
@@ -56,6 +60,34 @@ function HomeScreen({ navigation }) {
         title="Go to TestDemo"
         onPress={() => navigation.navigate('TestDemo')}
       />
+      <Button
+        title="Go to FlashListDemo"
+        onPress={() => navigation.navigate('FlashListDemo')}
+      />
+      <Button
+        title="Go to VectorIconsDemo"
+        onPress={() => navigation.navigate('VectorIconsDemo')}
+      />
+      <Button
+        title="Go to DeviceInfoDemo"
+        onPress={() => navigation.navigate('DeviceInfoDemo')}
+      />
+      <Button
+        title="Go to NetInfoDemo"
+        onPress={() => navigation.navigate('NetInfoDemo')}
+      />
+      <Button
+        title="Go to AsyncStorageDemo"
+        onPress={() => navigation.navigate('AsyncStorageDemo')}
+      />
+      <Button
+        title="Go to CollapsibleDemo"
+        onPress={() => navigation.navigate('CollapsibleDemo')}
+      />
+      {/* <Button
+        title="Go to GetRandomValuesDemo"
+        onPress={() => navigation.navigate('GetRandomValuesDemo')}
+      /> */}
       <Main />
     </View>
   );
@@ -106,12 +138,39 @@ function DetailsScreen({ navigation }) {
 
 const App: () => Node = () => {
   return (<NavigationContainer>
-    <HomeStack.Navigator>
+    <HomeStack.Navigator
+      screenOptions={{
+        animationEnabled: false,
+        headerTintColor: 'black',
+        headerStyle: { backgroundColor: '#f8f8f8', shadowColor: "transparent",
+          borderBottomColor: "rgba(49, 69, 106, 0.1)",
+          borderBottomWidth: 1,},
+        headerTitleStyle: {
+          color: "#171F26"
+        },
+        headerTitleAlign: "center",
+        headerLeft: (props: StackHeaderLeftButtonProps) => {
+          if(!props.canGoBack) {
+            return null;
+          }
+          return <TouchableOpacity style={{ paddingLeft: 20 }} onPress={() => {
+            props.onPress();
+          }}><Text >Back</Text></TouchableOpacity>; 
+        },
+      }}
+      >
       <HomeStack.Screen name="Home" component={HomeScreen} />
       <HomeStack.Screen name="Details" component={DetailsScreen} />
       <HomeStack.Screen name="Hooks" component={HooksUnTester} />
       <HomeStack.Screen name="MaskedDemo" component={MaskedDemo} />
       <HomeStack.Screen name="TestDemo" component={TestDemo} />
+      <HomeStack.Screen name="FlashListDemo" component={FlashListDemo} />
+      <HomeStack.Screen name="VectorIconsDemo" component={VectorIconsDemo} />
+      <HomeStack.Screen name="DeviceInfoDemo" component={DeviceInfoDemo} />
+      <HomeStack.Screen name="NetInfoDemo" component={NetInfoDemo} />
+      <HomeStack.Screen name="AsyncStorageDemo" component={AsyncStorageDemo} />
+      <HomeStack.Screen name="CollapsibleDemo" component={CollapsibleDemo} />
+      {/* <HomeStack.Screen name="GetRandomValuesDemo" component={GetRandomValuesDemo} /> */}
     </HomeStack.Navigator>
   </NavigationContainer>);
 }
@@ -120,25 +179,12 @@ const App: () => Node = () => {
 
 const Main: () => Node = () => {
 
-
   // native侧发送的消息监听
   DeviceEventEmitter.addListener('onTest', (event) => {
     console.log('onTest', event);
   });
 
   const [result, setResult] = useState<string | null>(null);
-
-
-  const [fetchInfo, setFetchInfo] = React.useState("");
-  const [refreshInfo, setRefreshInfo] = React.useState("");
-  const netInfo = useNetInfo();
-
-  NetInfo.fetch().then((state) => {
-    setFetchInfo(JSON.stringify(state));
-  });
-  NetInfo.refresh().then((state) => {
-    setRefreshInfo(JSON.stringify(state));
-  });
 
   return (
     <SafeAreaProvider initialMetrics={initialWindowMetrics}>
@@ -165,26 +211,6 @@ const Main: () => Node = () => {
             <Button title='Test' onPress={() => {
               SampleTurboModule.test();
             }} />
-            <Text>DeviceInfo Demo</Text>
-            <Text>BundleId: {RNDeviceInfo.getBundleId()}</Text>
-            <Text>getVersion: {RNDeviceInfo.getVersion()}</Text>
-            <Text>getReadableVersion: {RNDeviceInfo.getReadableVersion()}</Text>
-            <Text>getBuildNumber: {RNDeviceInfo.getBuildNumber()}</Text>
-            <Text>getApplicationName: {RNDeviceInfo.getApplicationName()}</Text>
-            <Text>getBrand: {RNDeviceInfo.getBrand()}</Text>
-            <Text>getModel: {RNDeviceInfo.getModel()}</Text>
-            <Text>getDeviceType: {RNDeviceInfo.getDeviceType()}</Text>
-
-            <View style={{ height: 20 }} />
-            <Text>NetInfo Demo</Text>
-            <Text>Type: {netInfo.type}</Text>
-            <Text>Is Connected? {netInfo.isConnected?.toString()}</Text>
-            <Text style={{ fontSize: 16, fontWeight: "600" }}>fetch():</Text>
-            <Text>{fetchInfo}</Text>
-            <Text style={{ fontSize: 16, fontWeight: "600" }}>refresh():</Text>
-            <Text>{refreshInfo}</Text>
-
-            <View style={{ height: 20 }} />
             <AsyncStorageDemo />
           </View>
         </ScrollView>
@@ -196,46 +222,7 @@ const Main: () => Node = () => {
 
 
 
-function AsyncStorageDemo() {
-  const [value, setValue] = useState("value");
-  const { getItem, setItem } = useAsyncStorage("@storage_key");
 
-  const readItemFromStorage = async () => {
-    const item = await getItem();
-    setValue(item);
-  };
-
-  const writeItemToStorage = async (newValue) => {
-    console.log("writeItemToStorage start", newValue);
-    await setItem(newValue);
-    console.log("writeItemToStorage end", newValue);
-    setValue(newValue);
-  };
-
-  useEffect(() => {
-    readItemFromStorage();
-  }, []);
-
-  return (
-    <View style={{ margin: 40 }}>
-      <Text>AsyncStorage Demo</Text>
-      <Text>Current value: {value}</Text>
-      <TouchableOpacity
-        style={{
-          backgroundColor: 'blue',
-          padding: 10,
-          margin: 20,
-          borderRadius: 5,
-        }}
-        onPress={() =>
-          writeItemToStorage(Math.random().toString(36).substr(2, 5))
-        }
-      >
-        <Text>Update value</Text>
-      </TouchableOpacity>
-    </View>
-  );
-}
 
 
 
