@@ -13,9 +13,10 @@ set(WITH_HITRACE_SYSTRACE 1) # for other CMakeLists.txt files to use
 set(CMAKE_VERBOSE_MAKEFILE ON)
 add_compile_definitions(WITH_HITRACE_SYSTRACE) # 启用HiTrace
 
-add_subdirectory("${RNOH_CPP_DIR}" ./rn)
 
+# add_subdirectory 将子目录添加到构建过程中，每个子目录都有一个CMakeLists.txt
 # 手动链接第三方库 第一步 begin：
+add_subdirectory("${RNOH_CPP_DIR}" ./rn)
 add_subdirectory("${OH_MODULE_DIR}/@react-native-oh-tpl/netinfo/src/main/cpp" ./netinfo)
 add_subdirectory("${OH_MODULE_DIR}/@react-native-oh-tpl/async-storage/src/main/cpp" ./async-storage)
 add_subdirectory("${OH_MODULE_DIR}/@react-native-oh-tpl/react-native-safe-area-context/src/main/cpp" ./safe-area)
@@ -59,14 +60,16 @@ add_library(rnoh_app SHARED
 )
 
 
-# 3、
+# 3、指定头文件目录
 target_include_directories(rnoh_app PUBLIC ${rtn_calculator_generated_dir})
+target_include_directories(rnoh_app PUBLIC ${GENERATED_CPP_FILES})
 
 
-target_link_libraries(rnoh_app PUBLIC rnoh)
 
 
+# 用于指定目标（如可执行文件或库）所依赖的库。这个命令会将指定的库链接到目标，使目标能够使用这些库中的符号和功能。
 # 手动链接第三方库 第二步 begin：
+target_link_libraries(rnoh_app PUBLIC rnoh)
 target_link_libraries(rnoh_app PUBLIC rnoh_netinfo)
 target_link_libraries(rnoh_app PUBLIC rnoh_async_storage)
 target_link_libraries(rnoh_app PUBLIC rnoh_safe_area)

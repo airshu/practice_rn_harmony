@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, Button } from "react-native";
 import "react-native-get-random-values";
 
 export const GetRandomValuesDemo = ({ navigation }) => {
-  const [randomValue, setRandomValue] = useState < any > [];
+  const [randomValue, setRandomValue] = useState<any[]>([]);
   const styles = StyleSheet.create({
     container: {
       flex: 1,
@@ -31,4 +31,4 @@ export const GetRandomValuesDemo = ({ navigation }) => {
       })}
     </View>
   );
-};
+}

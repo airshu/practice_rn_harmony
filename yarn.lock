@@ -1832,10 +1832,10 @@
   resolved "https://registry.npmjs.org/@react-native-oh-tpl/react-native-gesture-handler/-/react-native-gesture-handler-2.14.1-2.14.15.tgz"
   integrity sha512-nxijqweRfHV5JKRqNPCI/6pU/pwck3mOHBblsYctOI/YP2NcwhBTDWR4JHMBBR1id+YLtfDRR2rY0MKYO66pCw==
 
-"@react-native-oh-tpl/react-native-get-random-values@^1.11.0-0.0.1":
+"@react-native-oh-tpl/react-native-get-random-values@file:./3rd/react-native-get-random-values/react-native-oh-tpl-react-native-get-random-values-1.11.0-0.0.1.tgz":
   version "1.11.0-0.0.1"
-  resolved "https://registry.npmjs.org/@react-native-oh-tpl/react-native-get-random-values/-/react-native-get-random-values-1.11.0-0.0.1.tgz"
-  integrity sha512-2V2aXHwJwVX9PjlBtgO06x0hRUbO0C7NjBYS/PnlERlbGmg+fMjkBCEGEXJPnSD1VllXXShp8xJgXo/FY/5y+A==
+  resolved "file:3rd/react-native-get-random-values/react-native-oh-tpl-react-native-get-random-values-1.11.0-0.0.1.tgz"
+  integrity sha512-zLSYSKgA6IV5zwlME5Kcgc9TGIzHP5YTUvhh5c0fDqTzUZNUwzb8htO3f4BbHxFGQGN3l775MS2wFjalZOMQRw==
   dependencies:
     fast-base64-decode "^1.0.0"
 

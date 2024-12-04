@@ -21,7 +21,7 @@
     "@react-native-oh-tpl/netinfo": "^11.1.0-0.0.8",
     "@react-native-oh-tpl/react-native-device-info": "^11.1.0-0.0.4",
     "@react-native-oh-tpl/react-native-gesture-handler": "^2.14.1-2.14.15",
-    "@react-native-oh-tpl/react-native-get-random-values": "^1.11.0-0.0.1",
+    "@react-native-oh-tpl/react-native-get-random-values": "file:./3rd/react-native-get-random-values/react-native-oh-tpl-react-native-get-random-values-1.11.0-0.0.1.tgz",
     "@react-native-oh-tpl/react-native-reanimated": "^3.6.3",
     "@react-native-oh-tpl/react-native-safe-area-context": "^4.7.4-0.2.0",
     "@react-native-oh-tpl/slider": "^4.4.3-0.3.3",

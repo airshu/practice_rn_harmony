@@ -6,7 +6,7 @@ import { AsyncStoragePackage } from "@react-native-oh-tpl/async-storage";
 import { SafeAreaViewPackage } from "@react-native-oh-tpl/react-native-safe-area-context/ts";
 import { GestureHandlerPackage } from '@react-native-oh-tpl/react-native-gesture-handler/ts';
 import { ReanimatedPackage } from '@react-native-oh-tpl/react-native-reanimated/ts';
-// import { RNGetRandomValuesPackage } from "@react-native-oh-tpl/react-native-get-random-values/ts";
+import { RNGetRandomValuesPackage } from "@react-native-oh-tpl/react-native-get-random-values/ts";
 
 
 // 创建自定义的RNPackage
@@ -19,6 +19,6 @@ export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
     new SafeAreaViewPackage(ctx),
     new GestureHandlerPackage(ctx),
     new ReanimatedPackage(ctx),
-    // new RNGetRandomValuesPackage(ctx),
+    new RNGetRandomValuesPackage(ctx),
   ];
 }

@@ -35,7 +35,7 @@ import { DeviceInfoDemo } from "./src/DeviceInfoDemo";
 import { NetInfoDemo } from "./src/NetInfoDemo";
 import { AsyncStorageDemo } from "./src/AsyncStorageDemo";
 import { CollapsibleDemo } from "./src/CollapsibleDemo";
-// import { GetRandomValuesDemo } from "./src/GetRandomValuesDemo";
+import { GetRandomValuesDemo } from "./src/GetRandomValuesDemo";
 
 
 const HomeStack = createStackNavigator();
@@ -84,10 +84,10 @@ function HomeScreen({ navigation }) {
         title="Go to CollapsibleDemo"
         onPress={() => navigation.navigate('CollapsibleDemo')}
       />
-      {/* <Button
+      <Button
         title="Go to GetRandomValuesDemo"
         onPress={() => navigation.navigate('GetRandomValuesDemo')}
-      /> */}
+      />
       <Main />
     </View>
   );
@@ -170,7 +170,7 @@ const App: () => Node = () => {
       <HomeStack.Screen name="NetInfoDemo" component={NetInfoDemo} />
       <HomeStack.Screen name="AsyncStorageDemo" component={AsyncStorageDemo} />
       <HomeStack.Screen name="CollapsibleDemo" component={CollapsibleDemo} />
-      {/* <HomeStack.Screen name="GetRandomValuesDemo" component={GetRandomValuesDemo} /> */}
+      <HomeStack.Screen name="GetRandomValuesDemo" component={GetRandomValuesDemo} />
     </HomeStack.Navigator>
   </NavigationContainer>);
 }
