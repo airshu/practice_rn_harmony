@@ -1,0 +1,11 @@
+{
+  "module": {
+    "name": "get_random_values",
+    "type": "har",
+    "deviceTypes": [
+      "default",
+      "tablet",
+      "2in1"
+    ]
+  }
+}

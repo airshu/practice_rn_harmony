@@ -1,0 +1,16 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "module description"
+    },
+    {
+      "name": "Get_random_valuesAbility_desc",
+      "value": "description"
+    },
+    {
+      "name": "Get_random_valuesAbility_label",
+      "value": "label"
+    }
+  ]
+}

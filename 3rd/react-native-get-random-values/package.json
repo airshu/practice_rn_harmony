@@ -1,0 +1,35 @@
+{
+  "name": "@react-native-oh-tpl/react-native-get-random-values",
+  "version": "1.11.0-0.0.1",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/react-native-oh-library/react-native-get-random-values.git" 
+  },
+  "harmony": {
+    "alias": "react-native-get-random-values",
+   "codegenConfig": [
+    {
+      "version": 1,
+      "specPaths": [
+        "./src/specs/v1"
+      ]
+    }
+   ]
+  },
+  "dependencies": {
+    "fast-base64-decode": "^1.0.0"
+  },
+  "peerDependencies": {
+    "react-native": ">=0.56"
+  },
+  "keywords": [
+    "Crypto.getRandomValues",
+    "crypto",
+    "get-random-values",
+    "getRandomValues",
+    "polyfill",
+    "react-native",
+    "harmony"
+  ]
+}
