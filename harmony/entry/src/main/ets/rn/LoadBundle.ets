@@ -1,3 +1,5 @@
+import { MaskedView, MASKED_VIEW_TYPE } from '@react-native-oh-tpl/masked-view';
+import { RNCSlider, SLIDER_TYPE } from '@react-native-oh-tpl/slider';
 import {
   ResourceJSBundleProvider,
   RNInstance,
@@ -16,10 +18,27 @@ import { createRNPackages } from '../RNPackagesFactory';
 // import { MarqueeView } from '../customView/MarqueeView'
 import { ENABLE_CAPI_ARCHITECTURE } from './config';
 
-export const arkTsComponentNames = []; //MarqueeView.NAME
+// 混合方案，需要添加组件名
+export const arkTsComponentNames = [
+  SLIDER_TYPE,
+  // MASKED_VIEW_TYPE,
+]; //MarqueeView.NAME
 
+// 引入自定义组件
 @Builder
 export function buildCustomComponent(ctx: ComponentBuilderContext) {
+  if (ctx.componentName == SLIDER_TYPE) {
+    RNCSlider({
+      ctx: ctx.rnComponentContext,
+      tag: ctx.tag,
+    })
+  }
+  // if(ctx.componentName == MASKED_VIEW_TYPE) {
+  //   MaskedView({
+  //     ctx: ctx.rnComponentContext,
+  //     tag: ctx.tag
+  //   })
+  // }
   Stack() {
     // if (ctx.componentName === PAGER_VIEW_TYPE) {
     //   RNCViewPager({

@@ -5,6 +5,7 @@ import {NetInfoPackage} from '@react-native-oh-tpl/netinfo/ts';
 import { AsyncStoragePackage } from "@react-native-oh-tpl/async-storage";
 import { SafeAreaViewPackage } from "@react-native-oh-tpl/react-native-safe-area-context";
 import { GestureHandlerPackage } from '@react-native-oh-tpl/react-native-gesture-handler/ts';
+import { ReanimatedPackage } from '@react-native-oh-tpl/react-native-reanimated/ts';
 
 
 
@@ -17,5 +18,6 @@ export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
     new AsyncStoragePackage(ctx),
     new SafeAreaViewPackage(ctx),
     new GestureHandlerPackage(ctx),
+    new ReanimatedPackage(ctx),
   ];
 }

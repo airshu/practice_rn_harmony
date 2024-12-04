@@ -20,6 +20,9 @@ add_subdirectory("${OH_MODULE_DIR}/@react-native-oh-tpl/netinfo/src/main/cpp" ./
 add_subdirectory("${OH_MODULE_DIR}/@react-native-oh-tpl/async-storage/src/main/cpp" ./async-storage)
 add_subdirectory("${OH_MODULE_DIR}/@react-native-oh-tpl/react-native-safe-area-context/src/main/cpp" ./safe-area)
 add_subdirectory("${OH_MODULE_DIR}/@react-native-oh-tpl/react-native-gesture-handler/src/main/cpp" ./gesture-handler)
+add_subdirectory("${OH_MODULE_DIR}/@react-native-oh-tpl/slider/src/main/cpp" ./slider)
+add_subdirectory("${OH_MODULE_DIR}/@react-native-oh-tpl/react-native-reanimated/src/main/cpp" ./reanimated)
+add_subdirectory("${OH_MODULE_DIR}/@react-native-oh-tpl/masked-view/src/main/cpp" ./masked-view)
 # 手动链接第三方库 第一步 end：
 
 
@@ -67,4 +70,7 @@ target_link_libraries(rnoh_app PUBLIC rnoh_netinfo)
 target_link_libraries(rnoh_app PUBLIC rnoh_async_storage)
 target_link_libraries(rnoh_app PUBLIC rnoh_safe_area)
 target_link_libraries(rnoh_app PUBLIC rnoh_gesture_handler)
+target_link_libraries(rnoh_app PUBLIC rnoh_slider)
+target_link_libraries(rnoh_app PUBLIC rnoh_reanimated)
+target_link_libraries(rnoh_app PUBLIC rnoh_masked_view)
 # 手动链接第三方库 第二步 end：

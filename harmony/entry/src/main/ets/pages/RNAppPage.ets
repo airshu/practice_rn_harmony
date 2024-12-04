@@ -1,3 +1,4 @@
+import { RNCSlider, SLIDER_TYPE } from "@react-native-oh-tpl/slider";
 import {
   AnyJSBundleProvider,
   ComponentBuilderContext,
@@ -10,14 +11,8 @@ import {
   RNOHLogger,
   TraceJSBundleProviderDecorator
 } from "@rnoh/react-native-openharmony";
+import { arkTsComponentNames, buildCustomComponent } from "../rn/LoadBundle";
 import { createRNPackages } from '../RNPackagesFactory';
-
-@Builder
-export function buildCustomRNComponent(ctx: ComponentBuilderContext) {
-}
-
-const wrappedCustomRNComponentBuilder = wrapBuilder(buildCustomRNComponent)
-
 
 @Entry
 @Component
@@ -40,7 +35,6 @@ struct Index {
     // when handled by RN
 
 
-
     this.rnohCoreContext!.dispatchBackPress()
     return true
   }
@@ -58,22 +52,26 @@ struct Index {
             enableNDKTextMeasuring: true, // 该项必须为true，用于开启NDK文本测算
             enableBackgroundExecutor: false,
             enableCAPIArchitecture: true, // 该项必须为true，用于开启CAPI
-            arkTsComponentNames: []
+            arkTsComponentNames: arkTsComponentNames,
+            fontResourceByFontFamily: {
+              'antoutline': $rawfile("fonts/antoutline.ttf"),
+              "antfill": $rawfile('fonts/antfill.ttf'),
+            },
           },
           initialProps: { "foo": "bar" } as Record<string, string>,
           appKey: "practice_rn_harmony",
-          wrappedCustomRNComponentBuilder: wrappedCustomRNComponentBuilder,
+          wrappedCustomRNComponentBuilder: wrapBuilder(buildCustomComponent),
           onSetUp: (rnInstance) => {
             rnInstance.enableFeatureFlag("ENABLE_RN_INSTANCE_CLEAN_UP")
           },
           jsBundleProvider: new TraceJSBundleProviderDecorator(
             new AnyJSBundleProvider([
-            new MetroJSBundleProvider(),
-            // NOTE: to load the bundle from file, place it in
-            // `/data/app/el2/100/base/com.rnoh.tester/files/bundle.harmony.js`
-            // on your device. The path mismatch is due to app sandboxing on HarmonyOS
-            // new FileJSBundleProvider('/data/storage/el2/base/files/bundle.harmony.js'),
-            // new ResourceJSBundleProvider(this.rnohCoreContext.uiAbilityContext.resourceManager, 'hermes_bundle.hbc'),
+              new MetroJSBundleProvider(),
+              // NOTE: to load the bundle from file, place it in
+              // `/data/app/el2/100/base/com.rnoh.tester/files/bundle.harmony.js`
+              // on your device. The path mismatch is due to app sandboxing on HarmonyOS
+              // new FileJSBundleProvider('/data/storage/el2/base/files/bundle.harmony.js'),
+              // new ResourceJSBundleProvider(this.rnohCoreContext.uiAbilityContext.resourceManager, 'hermes_bundle.hbc'),
               new ResourceJSBundleProvider(this.rnohCoreContext.uiAbilityContext.resourceManager, 'bundle.harmony.js')
             ]),
             this.rnohCoreContext.logger),
