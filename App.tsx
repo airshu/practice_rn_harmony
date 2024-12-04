@@ -2,7 +2,6 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import type { Node } from 'react';
 import {
-  SafeAreaView,
   StatusBar,
   Text,
   Button,
@@ -17,8 +16,52 @@ import RNDeviceInfo from '@react-native-oh-tpl/react-native-device-info';
 // import SampleTurboModule from './src/bundles/basic/SampleTurboModule';
 import NetInfo, { useNetInfo } from "@react-native-community/netinfo";
 import { useAsyncStorage } from "@react-native-oh-tpl/async-storage";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from '@react-navigation/stack';
+
+import { SafeAreaProvider, SafeAreaView, initialWindowMetrics  } from "react-native-safe-area-context";
+
+
+
+const HomeStack = createStackNavigator();
+
+function HomeScreen({ navigation }) {
+  return (
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+          <Text>Home screen</Text>
+          <Button
+              title="Go to Details"
+              onPress={() => navigation.navigate('Details')}
+          />
+          <Main />
+      </View>
+  );
+}
+
+function DetailsScreen({ navigation }) {
+  return (
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+          <Text>Details!</Text>
+          <Button
+              title="Go back"
+              onPress={() => navigation.goBack()}
+          />
+      </View>
+  );
+}
 
 const App: () => Node = () => {
+  return (<NavigationContainer>
+    <HomeStack.Navigator>
+    <HomeStack.Screen name="Home" component={HomeScreen} />
+    <HomeStack.Screen name="Details" component={DetailsScreen} />
+    </HomeStack.Navigator>
+  </NavigationContainer>);
+}
+
+
+
+const Main: () => Node = () => {
 
 
   // native侧发送的消息监听
@@ -41,6 +84,7 @@ const App: () => Node = () => {
   });
 
   return (
+    <SafeAreaProvider initialMetrics={initialWindowMetrics}>
     <SafeAreaView>
       <ScrollView >
         <View>
@@ -89,6 +133,7 @@ const App: () => Node = () => {
       </ScrollView>
 
     </SafeAreaView>
+    </SafeAreaProvider>
   );
 };
 
