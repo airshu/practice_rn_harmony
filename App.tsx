@@ -39,6 +39,7 @@ import { GetRandomValuesDemo } from "./src/GetRandomValuesDemo";
 import { WebViewDemo } from "./src/WebViewDemo";
 import { FastImageDemo } from "./src/FastImageDemo";
 import { SimpleDemo } from "./src/SimpleDemo";
+import { FSDemo } from "./src/FSDemo";
 
 
 const HomeStack = createStackNavigator();
@@ -102,6 +103,10 @@ function HomeScreen({ navigation }) {
       <Button
         title="Go to FastImageDemo"
         onPress={() => navigation.navigate('FastImageDemo')}
+      />
+      <Button
+        title="Go to FSDemo"
+        onPress={() => navigation.navigate('FSDemo')}
       />
     </View>
   );
@@ -188,6 +193,7 @@ const App: () => Node = () => {
       <HomeStack.Screen name="GetRandomValuesDemo" component={GetRandomValuesDemo} />
       <HomeStack.Screen name="WebViewDemo" component={WebViewDemo} />
       <HomeStack.Screen name="FastImageDemo" component={FastImageDemo} />
+      <HomeStack.Screen name="FSDemo" component={FSDemo} />
     </HomeStack.Navigator>
   </NavigationContainer>);
 }

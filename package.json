@@ -21,6 +21,7 @@
     "@react-native-oh-tpl/netinfo": "^11.1.0-0.0.8",
     "@react-native-oh-tpl/react-native-device-info": "^11.1.0-0.0.4",
     "@react-native-oh-tpl/react-native-fast-image": "^8.6.3-0.4.16",
+    "@react-native-oh-tpl/react-native-fs": "^2.20.0-0.1.14",
     "@react-native-oh-tpl/react-native-gesture-handler": "^2.14.1-2.14.15",
     "@react-native-oh-tpl/react-native-get-random-values": "file:./3rd/react-native-get-random-values/react-native-oh-tpl-react-native-get-random-values-1.11.0-0.0.1.tgz",
     "@react-native-oh-tpl/react-native-reanimated": "^3.6.3",

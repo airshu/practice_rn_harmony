@@ -12,6 +12,7 @@
 #include "RNOH/Package.h"
 #include "RNOH/ArkTSTurboModule.h"
 #include "generated/RNDeviceInfo.h"
+#include "generated/ReactNativeFs.h"
 #include "generated/GetRandomValuesNativeModule.h"
 #include "generated/SampleTurboModule.h"
 #include "generated/RNCWebViewComponentDescriptor.h"
@@ -24,6 +25,9 @@ class RNOHGeneratedPackageTurboModuleFactoryDelegate : public TurboModuleFactory
     SharedTurboModule createTurboModule(Context ctx, const std::string &name) const override {
         if (name == "RNDeviceInfo") {
             return std::make_shared<RNDeviceInfo>(ctx, name);
+        }
+        if (name == "ReactNativeFs") {
+            return std::make_shared<ReactNativeFs>(ctx, name);
         }
         if (name == "GetRandomValuesNativeModule") {
             return std::make_shared<GetRandomValuesNativeModule>(ctx, name);

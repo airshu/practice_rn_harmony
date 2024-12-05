@@ -8,7 +8,7 @@ import { GestureHandlerPackage } from '@react-native-oh-tpl/react-native-gesture
 import { ReanimatedPackage } from '@react-native-oh-tpl/react-native-reanimated/ts';
 import { RNGetRandomValuesPackage } from "@react-native-oh-tpl/react-native-get-random-values/ts";
 import {FastImagePackage} from '@react-native-oh-tpl/react-native-fast-image/ts';
-
+import { FsPackage } from '@react-native-oh-tpl/react-native-fs/ts';
 
 // 创建自定义的RNPackage
 export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
@@ -22,5 +22,6 @@ export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
     new ReanimatedPackage(ctx),
     new RNGetRandomValuesPackage(ctx),
     new FastImagePackage(ctx),
+    new FsPackage(ctx),
   ];
 }
