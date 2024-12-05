@@ -10,7 +10,7 @@
 #include "MaskedPackage.h"
 #include "FlashListPackage.h"
 #include "FastImagePackage.h"
-
+#include "SVGPackage.h"
 
 using namespace rnoh;
 
@@ -28,5 +28,6 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
         std::make_shared<MaskedPackage>(ctx),
         std::make_shared<FlashListPackage>(ctx),
         std::make_shared<FastImagePackage>(ctx),
+        std::make_shared<SVGPackage>(ctx),
     };
 }

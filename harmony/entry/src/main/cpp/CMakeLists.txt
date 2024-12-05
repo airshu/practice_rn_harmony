@@ -26,6 +26,7 @@ add_subdirectory("${OH_MODULE_DIR}/@react-native-oh-tpl/react-native-reanimated/
 add_subdirectory("${OH_MODULE_DIR}/@react-native-oh-tpl/masked-view/src/main/cpp" ./masked-view)
 add_subdirectory("${OH_MODULE_DIR}/@react-native-oh-tpl/flash-list/src/main/cpp" ./flash-list)
 add_subdirectory("${OH_MODULE_DIR}/@react-native-oh-tpl/react-native-fast-image/src/main/cpp" ./fast-image)
+add_subdirectory("${OH_MODULE_DIR}/@react-native-oh-tpl/react-native-svg/src/main/cpp" ./svg)
 # 手动链接第三方库 第一步 end：
 
 
@@ -80,4 +81,5 @@ target_link_libraries(rnoh_app PUBLIC rnoh_reanimated)
 target_link_libraries(rnoh_app PUBLIC rnoh_masked_view)
 target_link_libraries(rnoh_app PUBLIC rnoh_flash_list)
 target_link_libraries(rnoh_app PUBLIC rnoh_fast_image)
+target_link_libraries(rnoh_app PUBLIC rnoh_svg)
 # 手动链接第三方库 第二步 end：
