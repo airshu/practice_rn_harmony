@@ -7,6 +7,7 @@ import { SafeAreaViewPackage } from "@react-native-oh-tpl/react-native-safe-area
 import { GestureHandlerPackage } from '@react-native-oh-tpl/react-native-gesture-handler/ts';
 import { ReanimatedPackage } from '@react-native-oh-tpl/react-native-reanimated/ts';
 import { RNGetRandomValuesPackage } from "@react-native-oh-tpl/react-native-get-random-values/ts";
+import {FastImagePackage} from '@react-native-oh-tpl/react-native-fast-image/ts';
 
 
 // 创建自定义的RNPackage
@@ -20,5 +21,6 @@ export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
     new GestureHandlerPackage(ctx),
     new ReanimatedPackage(ctx),
     new RNGetRandomValuesPackage(ctx),
+    new FastImagePackage(ctx),
   ];
 }

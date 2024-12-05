@@ -36,6 +36,9 @@ import { NetInfoDemo } from "./src/NetInfoDemo";
 import { AsyncStorageDemo } from "./src/AsyncStorageDemo";
 import { CollapsibleDemo } from "./src/CollapsibleDemo";
 import { GetRandomValuesDemo } from "./src/GetRandomValuesDemo";
+import { WebViewDemo } from "./src/WebViewDemo";
+import { FastImageDemo } from "./src/FastImageDemo";
+import { SimpleDemo } from "./src/SimpleDemo";
 
 
 const HomeStack = createStackNavigator();
@@ -44,6 +47,10 @@ function HomeScreen({ navigation }) {
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
       <Text>Home screen</Text>
+      <Button
+        title="Go to SimpleDemo"
+        onPress={() => navigation.navigate('SimpleDemo')}
+      />
       <Button
         title="Go to Details"
         onPress={() => navigation.navigate('Details')}
@@ -88,7 +95,14 @@ function HomeScreen({ navigation }) {
         title="Go to GetRandomValuesDemo"
         onPress={() => navigation.navigate('GetRandomValuesDemo')}
       />
-      <Main />
+      <Button
+        title="Go to WebViewDemo"
+        onPress={() => navigation.navigate('WebViewDemo')}
+      />
+      <Button
+        title="Go to FastImageDemo"
+        onPress={() => navigation.navigate('FastImageDemo')}
+      />
     </View>
   );
 }
@@ -160,6 +174,7 @@ const App: () => Node = () => {
       }}
       >
       <HomeStack.Screen name="Home" component={HomeScreen} />
+      <HomeStack.Screen name="SimpleDemo" component={SimpleDemo} />
       <HomeStack.Screen name="Details" component={DetailsScreen} />
       <HomeStack.Screen name="Hooks" component={HooksUnTester} />
       <HomeStack.Screen name="MaskedDemo" component={MaskedDemo} />
@@ -171,59 +186,11 @@ const App: () => Node = () => {
       <HomeStack.Screen name="AsyncStorageDemo" component={AsyncStorageDemo} />
       <HomeStack.Screen name="CollapsibleDemo" component={CollapsibleDemo} />
       <HomeStack.Screen name="GetRandomValuesDemo" component={GetRandomValuesDemo} />
+      <HomeStack.Screen name="WebViewDemo" component={WebViewDemo} />
+      <HomeStack.Screen name="FastImageDemo" component={FastImageDemo} />
     </HomeStack.Navigator>
   </NavigationContainer>);
 }
-
-
-
-const Main: () => Node = () => {
-
-  // native侧发送的消息监听
-  DeviceEventEmitter.addListener('onTest', (event) => {
-    console.log('onTest', event);
-  });
-
-  const [result, setResult] = useState<string | null>(null);
-
-  return (
-    <SafeAreaProvider initialMetrics={initialWindowMetrics}>
-      <SafeAreaView>
-        <ScrollView >
-          <View>
-            <StatusBar barStyle={'dark-content'} />
-            <Text style={{ marginLeft: 20, marginTop: 20 }}>
-              3+7={result ?? '??'}
-            </Text>
-            <Button
-              title="Compute"
-              onPress={async () => {
-                try {
-                  const value = await RNTCalculator.add(3, 7);
-                  setResult("" + value);
-                } catch (error) {
-                  console.error(error);
-                  setResult("" + error);
-                }
-
-              }}
-            />
-            <Button title='Test' onPress={() => {
-              SampleTurboModule.test();
-            }} />
-            <AsyncStorageDemo />
-          </View>
-        </ScrollView>
-
-      </SafeAreaView>
-    </SafeAreaProvider>
-  );
-};
-
-
-
-
-
 
 
 export default App;

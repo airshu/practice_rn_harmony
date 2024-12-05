@@ -14,6 +14,8 @@
 #include "generated/RNDeviceInfo.h"
 #include "generated/GetRandomValuesNativeModule.h"
 #include "generated/SampleTurboModule.h"
+#include "generated/RNCWebViewComponentDescriptor.h"
+#include "generated/RNCWebViewJSIBinder.h"
 
 namespace rnoh {
 
@@ -42,6 +44,20 @@ class GeneratedEventEmitRequestHandler : public EventEmitRequestHandler {
         }
 
         std::vector<std::string> supportedEventNames = {
+            "contentSizeChange",
+            "renderProcessGone",
+            "contentProcessDidTerminate",
+            "customMenuSelection",
+            "fileDownload",
+            "loadingError",
+            "loadingFinish",
+            "loadingProgress",
+            "loadingStart",
+            "httpError",
+            "message",
+            "openWindow",
+            "scroll",
+            "shouldStartLoadWithRequest",
         };
         if (std::find(supportedEventNames.begin(), supportedEventNames.end(), ctx.eventName) != supportedEventNames.end()) {
             eventEmitter->dispatchEvent(ctx.eventName, ArkJS(ctx.env).getDynamic(ctx.payload));
@@ -59,11 +75,13 @@ class RNOHGeneratedPackage : public Package {
 
     std::vector<facebook::react::ComponentDescriptorProvider> createComponentDescriptorProviders() override {
         return {
+            facebook::react::concreteComponentDescriptorProvider<facebook::react::RNCWebViewComponentDescriptor>(),
         };
     }
 
     ComponentJSIBinderByString createComponentJSIBinderByName() override {
         return {
+            {"RNCWebView", std::make_shared<RNCWebViewJSIBinder>()},
         };
     };
 

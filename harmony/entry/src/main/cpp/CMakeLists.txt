@@ -25,6 +25,7 @@ add_subdirectory("${OH_MODULE_DIR}/@react-native-oh-tpl/slider/src/main/cpp" ./s
 add_subdirectory("${OH_MODULE_DIR}/@react-native-oh-tpl/react-native-reanimated/src/main/cpp" ./reanimated)
 add_subdirectory("${OH_MODULE_DIR}/@react-native-oh-tpl/masked-view/src/main/cpp" ./masked-view)
 add_subdirectory("${OH_MODULE_DIR}/@react-native-oh-tpl/flash-list/src/main/cpp" ./flash-list)
+add_subdirectory("${OH_MODULE_DIR}/@react-native-oh-tpl/react-native-fast-image/src/main/cpp" ./fast-image)
 # 手动链接第三方库 第一步 end：
 
 
@@ -50,7 +51,7 @@ message(WARNING ">>>>  ${CMAKE_CURRENT_SOURCE_DIR}/generated/*.cpp")
 message(WARNING "<><><><><><><><>222<><><><><>><><><>" )
 
 
-# 添加共享库
+# 创建共享动态库，名字叫rnoh_app，包含相关的cpp文件
 add_library(rnoh_app SHARED
     ${rtn_calculator_generated_dir_SRC}
     ${rtn_calculator_package_SRC}
@@ -78,4 +79,5 @@ target_link_libraries(rnoh_app PUBLIC rnoh_slider)
 target_link_libraries(rnoh_app PUBLIC rnoh_reanimated)
 target_link_libraries(rnoh_app PUBLIC rnoh_masked_view)
 target_link_libraries(rnoh_app PUBLIC rnoh_flash_list)
+target_link_libraries(rnoh_app PUBLIC rnoh_fast_image)
 # 手动链接第三方库 第二步 end：

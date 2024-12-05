@@ -1827,6 +1827,13 @@
   dependencies:
     react-native-device-info "11.1.0"
 
+"@react-native-oh-tpl/react-native-fast-image@^8.6.3-0.4.16":
+  version "8.6.3-0.4.16"
+  resolved "https://registry.npmjs.org/@react-native-oh-tpl/react-native-fast-image/-/react-native-fast-image-8.6.3-0.4.16.tgz"
+  integrity sha512-oFVXxZ5dnMEMrHcNkdkdA+GprB+wF8gjo7B60zv4zNgcW1fYtqVTu2jtqnZCRbup3PgvcE4C0JO6CpO8F1sINQ==
+  dependencies:
+    react-native-fast-image "8.6.3"
+
 "@react-native-oh-tpl/react-native-gesture-handler@^2.14.1-2.14.15":
   version "2.14.1-2.14.15"
   resolved "https://registry.npmjs.org/@react-native-oh-tpl/react-native-gesture-handler/-/react-native-gesture-handler-2.14.1-2.14.15.tgz"
@@ -1852,6 +1859,15 @@
   integrity sha512-7wKwcmcvtTlvBYbFuX1NcXz8ftd619X9pfIW7OVSgLxcHfwrJfiwHgi+u58xylDb6WSW1q4vpWEXbsgZMpGhcA==
   dependencies:
     react-native-safe-area-context "4.7.4"
+
+"@react-native-oh-tpl/react-native-webview@^13.10.2-0.2.32":
+  version "13.10.2-0.2.32"
+  resolved "https://registry.npmjs.org/@react-native-oh-tpl/react-native-webview/-/react-native-webview-13.10.2-0.2.32.tgz"
+  integrity sha512-N1VoBXaVQdViu+xTQk/Gys8wr0elyvbu1YmimLBshvlwfCOKMhnIgbrWUbX/FL5mvPUr2Eh1J1HGk6PcHJALqQ==
+  dependencies:
+    escape-string-regexp "2.0.0"
+    invariant "2.2.4"
+    react-native-webview "13.10.2"
 
 "@react-native-oh-tpl/slider@^4.4.3-0.3.3":
   version "4.4.3-0.3.3"
@@ -3688,6 +3704,11 @@ escape-string-regexp@^4.0.0:
   resolved "https://registry.npmjs.org/escape-string-regexp/-/escape-string-regexp-4.0.0.tgz"
   integrity sha512-TtpcNJ3XAzx3Gq8sWRzJaVajRs0uVxA2YAkdb1jm2YkPz4G6egUFAyA3n5vtEIZefPk5Wa4UXbKuS5fKkJWdgA==
 
+escape-string-regexp@2.0.0:
+  version "2.0.0"
+  resolved "https://registry.npmjs.org/escape-string-regexp/-/escape-string-regexp-2.0.0.tgz"
+  integrity sha512-UpzcLCXolUWcNu5HtVMHYdXJjArjsF9C0aNnquZYY4uW/Vu0miy5YoWvbV345HauVvcAUnpRuhMMcqTcGOY2+w==
+
 eslint-config-prettier@^8.5.0:
   version "8.10.0"
   resolved "https://registry.npmjs.org/eslint-config-prettier/-/eslint-config-prettier-8.10.0.tgz"
@@ -4559,7 +4580,7 @@ internal-slot@^1.0.7:
     hasown "^2.0.0"
     side-channel "^1.0.4"
 
-invariant@*, invariant@^2.2.4:
+invariant@*, invariant@^2.2.4, invariant@2.2.4:
   version "2.2.4"
   resolved "https://registry.npmjs.org/invariant/-/invariant-2.2.4.tgz"
   integrity sha512-phJfQVBuaJM5raOpJjSfkiD6BpbCE4Ns//LaXl6wGYtUBY83nWS6Rf9tXm2e8VaK60JEjYldbPif/A2B1C2gNA==
@@ -7047,6 +7068,11 @@ react-native-device-info@11.1.0:
   resolved "https://registry.npmjs.org/react-native-device-info/-/react-native-device-info-11.1.0.tgz"
   integrity sha512-hzXJSObJdezEz0hF7MAJ3tGeoesuQWenXXt9mrQR9Mjb8kXpZ09rqSsZ/quNpJdZpQ3rYiFa3/0GFG5KNn9PBg==
 
+react-native-fast-image@8.6.3:
+  version "8.6.3"
+  resolved "https://registry.npmjs.org/react-native-fast-image/-/react-native-fast-image-8.6.3.tgz"
+  integrity sha512-Sdw4ESidXCXOmQ9EcYguNY2swyoWmx53kym2zRsvi+VeFCHEdkO+WG1DK+6W81juot40bbfLNhkc63QnWtesNg==
+
 "react-native-gesture-handler@>= 1.0.0", react-native-gesture-handler@>=2.2.1, react-native-gesture-handler@2.14.1:
   version "2.14.1"
   resolved "https://registry.npmjs.org/react-native-gesture-handler/-/react-native-gesture-handler-2.14.1.tgz"
@@ -7101,6 +7127,14 @@ react-native-vector-icons@^10.0.3:
   dependencies:
     prop-types "^15.7.2"
     yargs "^16.1.1"
+
+react-native-webview@13.10.2:
+  version "13.10.2"
+  resolved "https://registry.npmjs.org/react-native-webview/-/react-native-webview-13.10.2.tgz"
+  integrity sha512-rjrTuPBtpHbI3owoyvSR+bRJqHfsdo5V3nVfU+G65CotkSLewEcGfA9cq7Qv3nzm5t0KEDIt0G/n7hQFjsXihQ==
+  dependencies:
+    escape-string-regexp "2.0.0"
+    invariant "2.2.4"
 
 react-native@*, "react-native@^0.0.0-0 || >=0.60 <1.0", "react-native@>= 0.30.0", react-native@>=0.56, react-native@>=0.57, react-native@>=0.59, react-native@>=0.60.0, react-native@>=0.64.0, react-native@>=0.64.1, react-native@>=0.65, react-native@>0.50.0, react-native@0.72.5:
   version "0.72.5"
@@ -7166,7 +7200,7 @@ react-test-renderer@18.2.0:
     react-shallow-renderer "^16.15.0"
     scheduler "^0.23.0"
 
-react@*, "react@^16.0.0 || ^17.0.0 || ^18.0.0", "react@^16.8.0 || ^17.0.0 || ^18.0.0", react@^18.2.0, react@^18.3.1, "react@>= 15.2.1", react@>=16, react@>=16.0.0, react@>=16.8, react@>=16.8.0, react@>=16.9.0, react@>=17.0.0, react@>=17.0.1, react@>=17.0.2, react@>16.0.0, react@18.2.0:
+react@*, "react@^16.0.0 || ^17.0.0 || ^18.0.0", "react@^16.8.0 || ^17.0.0 || ^18.0.0", "react@^17 || ^18", react@^18.2.0, react@^18.3.1, "react@>= 15.2.1", react@>=16, react@>=16.0.0, react@>=16.8, react@>=16.8.0, react@>=16.9.0, react@>=17.0.0, react@>=17.0.1, react@>=17.0.2, react@>16.0.0, react@18.2.0:
   version "18.2.0"
   resolved "https://registry.npmjs.org/react/-/react-18.2.0.tgz"
   integrity sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ==

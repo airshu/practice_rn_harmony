@@ -1,4 +1,5 @@
 import { MaskedView, MASKED_VIEW_TYPE } from '@react-native-oh-tpl/masked-view';
+import { WebView, WEB_VIEW } from '@react-native-oh-tpl/react-native-webview';
 import { RNCSlider, SLIDER_TYPE } from '@react-native-oh-tpl/slider';
 import {
   ResourceJSBundleProvider,
@@ -21,6 +22,7 @@ import { ENABLE_CAPI_ARCHITECTURE } from './config';
 // 混合方案，需要添加组件名
 export const arkTsComponentNames = [
   SLIDER_TYPE,
+  WEB_VIEW,
   // MASKED_VIEW_TYPE,
 ]; //MarqueeView.NAME
 
@@ -32,6 +34,12 @@ export function buildCustomComponent(ctx: ComponentBuilderContext) {
       ctx: ctx.rnComponentContext,
       tag: ctx.tag,
     })
+  }
+  if(ctx.componentName == WEB_VIEW) {
+   WebView({
+      ctx: ctx.rnComponentContext,
+      tag: ctx.tag
+   })
   }
   // if(ctx.componentName == MASKED_VIEW_TYPE) {
   //   MaskedView({
