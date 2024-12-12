@@ -27,6 +27,7 @@ add_subdirectory("${OH_MODULE_DIR}/@react-native-oh-tpl/masked-view/src/main/cpp
 add_subdirectory("${OH_MODULE_DIR}/@react-native-oh-tpl/flash-list/src/main/cpp" ./flash-list)
 add_subdirectory("${OH_MODULE_DIR}/@react-native-oh-tpl/react-native-fast-image/src/main/cpp" ./fast-image)
 add_subdirectory("${OH_MODULE_DIR}/@react-native-oh-tpl/react-native-svg/src/main/cpp" ./svg)
+add_subdirectory("${OH_MODULE_DIR}/@react-native-oh-tpl/react-native-vision-camera/src/main/cpp" ./vision-camera)
 # 手动链接第三方库 第一步 end：
 
 
@@ -35,10 +36,8 @@ add_subdirectory("${OH_MODULE_DIR}/@react-native-oh-tpl/react-native-svg/src/mai
 set(rtn_calculator_generated_dir "${RNOH_GENERATED_DIR}/rtn_calculator")
 file(GLOB_RECURSE rtn_calculator_generated_dir_SRC "${rtn_calculator_generated_dir}/**/*.cpp") # 递归获取目录下的所有cpp文件
 file(GLOB rtn_calculator_package_SRC CONFIGURE_DEPENDS *.cpp)
-
-#file(GLOB GENERATED_CPP_FILES "./generated/*.cpp")
 file(GLOB GENERATED_CPP_FILES "${CMAKE_CURRENT_SOURCE_DIR}/generated/*.cpp") # this line is needed by codegen v1
-
+file(GLOB VISION_CAMERA_CPP_FILES "${OH_MODULE_DIR}/@react-native-oh-tpl/react-native-vision-camera/src/main/cpp/*.cpp")
 
 
 
@@ -57,6 +56,7 @@ add_library(rnoh_app SHARED
     ${rtn_calculator_generated_dir_SRC}
     ${rtn_calculator_package_SRC}
     ${GENERATED_CPP_FILES}
+    ${VISION_CAMERA_CPP_FILES}
     "./PackageProvider.cpp"
     "${RNOH_CPP_DIR}/RNOHAppNapiBridge.cpp"
 )
@@ -82,4 +82,5 @@ target_link_libraries(rnoh_app PUBLIC rnoh_masked_view)
 target_link_libraries(rnoh_app PUBLIC rnoh_flash_list)
 target_link_libraries(rnoh_app PUBLIC rnoh_fast_image)
 target_link_libraries(rnoh_app PUBLIC rnoh_svg)
+target_link_libraries(rnoh_app PUBLIC rnoh_vision_camera)
 # 手动链接第三方库 第二步 end：

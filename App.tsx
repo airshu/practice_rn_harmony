@@ -3,16 +3,15 @@ import {
   Text,
   Button, View,
   TouchableOpacity,
-  ScrollView
+  ScrollView,
+  StyleSheet
 } from 'react-native';
 
 // import SampleTurboModule from './src/bundles/basic/SampleTurboModule';
 
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from '@react-navigation/stack';
-
 import type { HeaderBackButtonProps } from '@react-navigation/elements';
-
 import { HooksUnTester } from "./src/HooksUnTester";
 import { MaskedDemo } from "./src/MaskedDemo";
 import { TestDemo } from "./src/TestDemo";
@@ -29,81 +28,41 @@ import { SimpleDemo } from "./src/SimpleDemo";
 import { FSDemo } from "./src/FSDemo";
 import { SvgDemo } from "./src/SvgDemo";
 import { AntDesignDemo } from "./src/AntDesignDemo";
+import { VisionCameraDemo } from "./src/VisionCameraDemo";
 
 
 const HomeStack = createStackNavigator();
 
+
 function HomeScreen({ navigation }) {
+
+  const useCustomButton = (title: string, onPress: () => void) => {
+    return (<TouchableOpacity style={styles.button} onPress={onPress}>
+      <Text style={styles.buttonText}>{title}</Text>
+    </TouchableOpacity>);
+  };
+
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <ScrollView>
-        <Text>Home screen</Text>
-        <Button
-          title="Go to SimpleDemo"
-          onPress={() => navigation.navigate('SimpleDemo')}
-        />
-        <Button
-          title="Go to Hooks"
-          onPress={() => navigation.navigate('Hooks')}
-        />
-        <Button
-          title="Go to MaskDemo"
-          onPress={() => navigation.navigate('MaskedDemo')}
-        />
-        <Button
-          title="Go to TestDemo"
-          onPress={() => navigation.navigate('TestDemo')}
-        />
-        <Button
-          title="Go to FlashListDemo"
-          onPress={() => navigation.navigate('FlashListDemo')}
-        />
-        <Button
-          title="Go to VectorIconsDemo"
-          onPress={() => navigation.navigate('VectorIconsDemo')}
-        />
-        <Button
-          title="Go to DeviceInfoDemo"
-          onPress={() => navigation.navigate('DeviceInfoDemo')}
-        />
-        <Button
-          title="Go to NetInfoDemo"
-          onPress={() => navigation.navigate('NetInfoDemo')}
-        />
-        <Button
-          title="Go to AsyncStorageDemo"
-          onPress={() => navigation.navigate('AsyncStorageDemo')}
-        />
-        <Button
-          title="Go to CollapsibleDemo"
-          onPress={() => navigation.navigate('CollapsibleDemo')}
-        />
-        <Button
-          title="Go to GetRandomValuesDemo"
-          onPress={() => navigation.navigate('GetRandomValuesDemo')}
-        />
-        <Button
-          title="Go to WebViewDemo"
-          onPress={() => navigation.navigate('WebViewDemo')}
-        />
-        <Button
-          title="Go to FastImageDemo"
-          onPress={() => navigation.navigate('FastImageDemo')}
-        />
-        <Button
-          title="Go to FSDemo"
-          onPress={() => navigation.navigate('FSDemo')}
-        />
-        <Button
-          title="Go to SvgDemo"
-          onPress={() => navigation.navigate('SvgDemo')}
-        />
-        <Button
-          title="Go to AntDesignDemo"
-          onPress={() => navigation.navigate('AntDesignDemo')}
-        />
+      <ScrollView showsVerticalScrollIndicator={false}>
+        {useCustomButton('Go to SimpleDemo', () => navigation.navigate('SimpleDemo'))}
+        {useCustomButton('Go to Hooks', () => navigation.navigate('Hooks'))}
+        {useCustomButton('Go to MaskDemo', () => navigation.navigate('MaskedDemo'))}
+        {useCustomButton('Go to TestDemo', () => navigation.navigate('TestDemo'))}
+        {useCustomButton('Go to FlashListDemo', () => navigation.navigate('FlashListDemo'))}
+        {useCustomButton('Go to VectorIconsDemo', () => navigation.navigate('VectorIconsDemo'))}
+        {useCustomButton('Go to DeviceInfoDemo', () => navigation.navigate('DeviceInfoDemo'))}
+        {useCustomButton('Go to NetInfoDemo', () => navigation.navigate('NetInfoDemo'))}
+        {useCustomButton('Go to AsyncStorageDemo', () => navigation.navigate('AsyncStorageDemo'))}
+        {useCustomButton('Go to CollapsibleDemo', () => navigation.navigate('CollapsibleDemo'))}
+        {useCustomButton('Go to GetRandomValuesDemo', () => navigation.navigate('GetRandomValuesDemo'))}
+        {useCustomButton('Go to WebViewDemo', () => navigation.navigate('WebViewDemo'))}
+        {useCustomButton('Go to FastImageDemo', () => navigation.navigate('FastImageDemo'))}
+        {useCustomButton('Go to FSDemo', () => navigation.navigate('FSDemo'))}
+        {useCustomButton('Go to SvgDemo', () => navigation.navigate('SvgDemo'))}
+        {useCustomButton("Go to AntDesignDemo", () => navigation.navigate('AntDesignDemo'))}
+        {useCustomButton("Go to VisionCameraDemo", () => navigation.navigate('VisionCameraDemo'))}
       </ScrollView>
-
     </View>
   );
 }
@@ -150,9 +109,22 @@ const App: () => Node = () => {
       <HomeStack.Screen name="FSDemo" component={FSDemo} />
       <HomeStack.Screen name="SvgDemo" component={SvgDemo} />
       <HomeStack.Screen name="AntDesignDemo" component={AntDesignDemo} />
+      <HomeStack.Screen name="VisionCameraDemo" component={VisionCameraDemo} />
     </HomeStack.Navigator>
   </NavigationContainer>);
 }
 
+const styles = StyleSheet.create({
+  button: {
+    marginVertical: 3,
+    padding: 10,
+    backgroundColor: '#007BFF',
+    borderRadius: 5,
+  },
+  buttonText: {
+    color: 'white',
+    textAlign: 'center',
+  },
+});
 
 export default App;

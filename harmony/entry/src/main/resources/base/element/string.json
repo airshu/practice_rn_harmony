@@ -11,6 +11,18 @@
     {
       "name": "EntryAbility_label",
       "value": "label"
+    },
+    {
+      "name": "camera_reason",
+      "value": "使用相机"
+    },
+    {
+      "name": "location_reason",
+      "value": "获取当前位置"
+    },
+    {
+      "name": "microphone_reason",
+      "value": "使用麦克风"
     }
   ]
 }

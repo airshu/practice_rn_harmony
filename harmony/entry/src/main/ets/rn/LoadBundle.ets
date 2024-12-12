@@ -1,4 +1,5 @@
 import { MaskedView, MASKED_VIEW_TYPE } from '@react-native-oh-tpl/masked-view';
+import { VisionCameraView } from '@react-native-oh-tpl/react-native-vision-camera';
 import { WebView, WEB_VIEW } from '@react-native-oh-tpl/react-native-webview';
 import { RNCSlider, SLIDER_TYPE } from '@react-native-oh-tpl/slider';
 import {
@@ -23,6 +24,7 @@ import { ENABLE_CAPI_ARCHITECTURE } from './config';
 export const arkTsComponentNames = [
   SLIDER_TYPE,
   WEB_VIEW,
+  VisionCameraView.NAME,
   // MASKED_VIEW_TYPE,
 ]; //MarqueeView.NAME
 
@@ -40,6 +42,12 @@ export function buildCustomComponent(ctx: ComponentBuilderContext) {
       ctx: ctx.rnComponentContext,
       tag: ctx.tag
    })
+  }
+  if(ctx.componentName == VisionCameraView.NAME) {
+    VisionCameraView({
+      ctx: ctx.rnComponentContext,
+      tag: ctx.tag
+    })
   }
   // if(ctx.componentName == MASKED_VIEW_TYPE) {
   //   MaskedView({

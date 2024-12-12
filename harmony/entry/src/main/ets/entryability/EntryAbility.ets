@@ -3,6 +3,7 @@ import Want from "@ohos.app.ability.Want";
 import { UPRNSDKImpl } from "../rn/UPReactView";
 import { window } from "@kit.ArkUI";
 import { BusinessError } from "@ohos.base";
+import { ArkTsDemo } from "../learning/ArkTsDemo";
 
 
 export default class EntryAbility extends RNAbility {
@@ -20,6 +21,10 @@ export default class EntryAbility extends RNAbility {
     super.onCreate(want);
     this.rnSDK = new UPRNSDKImpl(this.context, want)
     AppStorage.setOrCreate('UPRNSDK', this.rnSDK);
+
+    let arkTsDemo = new ArkTsDemo()
+    arkTsDemo.test1(null)
+    arkTsDemo.testFun()
   }
 
   onDestroy(): void {
